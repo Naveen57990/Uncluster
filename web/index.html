@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UNCLUSTER // Cypherpunk Pre-Flight UTXO Cluster Analyzer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Share+Tech+Mono&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="../assets/logo.png">
+</head>
+<body class="crt-active">
+  <div class="crt-overlay"></div>
+  <div class="cyberdeck-frame">
+    <!-- Top Deck Header -->
+    <header class="deck-header">
+      <div class="deck-brand">
+        <div class="status-indicator live"></div>
+        <div class="brand-titles">
+          <span class="brand-code">SYS://UNCLUSTER_v1.0.4</span>
+          <h1 class="brand-title">UNCLUSTER</h1>
+        </div>
+      </div>
+      <div class="deck-meta">
+        <div class="telemetry-chip">
+          <span class="chip-label">MEMPOOL FEED</span>
+          <span class="chip-val" id="mempool-tip">BLOCK #889,420 // SYNCED</span>
+        </div>
+        <div class="telemetry-chip">
+          <span class="chip-label">HEURISTIC ENGINE</span>
+          <span class="chip-val text-phosphor">CIOH + SCRIPT GUARD</span>
+        </div>
+        <!-- Hardware Toggles -->
+        <div class="hardware-controls">
+          <label class="toggle-control" title="Toggle CRT Scanline Shader">
+            <span class="toggle-label">CRT</span>
+            <input type="checkbox" id="toggle-crt" checked>
+            <span class="switch"></span>
+          </label>
+          <label class="toggle-control" title="Toggle Mechanical Audio Clicks">
+            <span class="toggle-label">AUDIO</span>
+            <input type="checkbox" id="toggle-audio" checked>
+            <span class="switch"></span>
+          </label>
+        </div>
+      </div>
+    </header>
+
+    <!-- Subheader Scenarios Bar -->
+    <div class="deck-scenarios-bar">
+      <div class="bar-tag"><span class="kbd">[HOTKEYS: 1-4]</span> SELECT PRE-FLIGHT TEST VECTOR:</div>
+      <div class="scenario-buttons">
+        <button class="scenario-btn active" data-scenario="cioh_leak">
+          <span class="btn-num">1</span> KYC Co-Spend (CIOH Leak)
+        </button>
+        <button class="scenario-btn" data-scenario="script_mismatch">
+          <span class="btn-num">2</span> Toxic Change Mismatch
+        </button>
+        <button class="scenario-btn" data-scenario="sovereign_clean">
+          <span class="btn-num">3</span> Sovereign Clean Payment
+        </button>
+        <button class="scenario-btn" data-scenario="nostr_zap">
+          <span class="btn-num">4</span> Nostr Agent Gossip Shield
+        </button>
+      </div>
+      <button class="action-btn-custom" id="btn-custom-inject">+ INJECT RAW TX</button>
+    </div>
+
+    <!-- Main Grid Dashboard -->
+    <main class="deck-main-grid">
+      <!-- Left Column: Transaction Topology & Disassembler -->
+      <section class="deck-card deck-card-left">
+        <div class="card-header">
+          <span class="card-title">01 // TRANSACTION TOPOLOGY DISASSEMBLER</span>
+          <span class="card-badge" id="tx-badge-type">2-IN / 2-OUT // SEGWIT</span>
+        </div>
+        
+        <!-- Live ASCII Topology Map -->
+        <div class="ascii-terminal-box">
+          <div class="terminal-titlebar">
+            <span>INPUT/OUTPUT CLUSTER GRAPH (ASCII MAP)</span>
+            <span class="term-status" id="ascii-leak-status">EXPOSURE DETECTED</span>
+          </div>
+          <pre class="ascii-content" id="ascii-topology-diagram">
+[INPUT 0: KYC_COINBASE] ────┐
+(250,000 sats | P2WPKH)     ├─► [TRANSACTION KERNEL] ─┬─► [DESTINATION: 300,000 sats]
+[INPUT 1: MINING_POOL] ─────┘   (FEE: 1,500 sats)     └─► [TOXIC CHANGE: 128,500 sats]
+(180,000 sats | P2WPKH)         CIOH: MERGED CLUSTER      (SCRIPT: MATCHED)
+          </pre>
+        </div>
+
+        <!-- Inputs & Outputs Breakdown -->
+        <div class="io-tables-container">
+          <div class="io-half">
+            <div class="io-header">INPUTS CONSUMED (<span id="in-count">2</span>)</div>
+            <div class="io-list" id="inputs-list">
+              <!-- Dynamically Populated -->
+            </div>
+          </div>
+          <div class="io-half">
+            <div class="io-header">OUTPUTS CREATED (<span id="out-count">2</span>)</div>
+            <div class="io-list" id="outputs-list">
+              <!-- Dynamically Populated -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Sovereignty Scorecard & Heuristic Diagnostics -->
+      <section class="deck-card deck-card-right">
+        <div class="card-header">
+          <span class="card-title">02 // SOVEREIGNTY TELEMETRY & FIREWALL</span>
+          <span class="card-badge pulse" id="score-grade-badge">GRADE: D</span>
+        </div>
+
+        <!-- Score Meter Gauge -->
+        <div class="score-display-panel">
+          <div class="gauge-box">
+            <div class="score-num" id="score-number">35</div>
+            <div class="score-denom">/ 100</div>
+          </div>
+          <div class="gauge-details">
+            <div class="gauge-title" id="gauge-verdict">HIGH CLUSTER EXPOSURE</div>
+            <p class="gauge-sub" id="gauge-explanation">Co-spending creates an immutable Common-Input link between KYC identity and private mining coins.</p>
+            <div class="progress-bar-container">
+              <div class="progress-fill" id="score-progress" style="width: 35%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Heuristic Flags Panel -->
+        <div class="heuristics-panel">
+          <div class="panel-subtitle">PRE-FLIGHT HEURISTIC CHECKS</div>
+          <div class="checks-grid">
+            <div class="check-item fail" id="chk-cioh">
+              <span class="check-icon">✕</span>
+              <div class="check-text">
+                <span class="check-name">Common-Input Heuristic (CIOH)</span>
+                <span class="check-desc" id="desc-cioh">Multiple distinct wallet clusters merged</span>
+              </div>
+            </div>
+            <div class="check-item pass" id="chk-script">
+              <span class="check-icon">✓</span>
+              <div class="check-text">
+                <span class="check-name">Script Type Symmetry</span>
+                <span class="check-desc" id="desc-script">Change script matches inputs (P2WPKH)</span>
+              </div>
+            </div>
+            <div class="check-item pass" id="chk-bip69">
+              <span class="check-icon">✓</span>
+              <div class="check-text">
+                <span class="check-name">BIP-69 Lexicographical Order</span>
+                <span class="check-desc" id="desc-bip69">Inputs/Outputs deterministically sorted</span>
+              </div>
+            </div>
+            <div class="check-item pass" id="chk-reuse">
+              <span class="check-icon">✓</span>
+              <div class="check-text">
+                <span class="check-name">Address Reuse Prevention</span>
+                <span class="check-desc" id="desc-reuse">Fresh single-use change address</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Deductions & Remediations -->
+        <div class="remediation-box">
+          <div class="panel-subtitle">REMEDIATION RECOMMENDATIONS</div>
+          <ul class="remediation-list" id="remediation-list">
+            <li>Isolate coin spending: Use sanitized coin selection to fund this transaction from a single wallet cluster.</li>
+            <li>Do not mix KYC exchange withdrawal outputs with private P2P or mining rewards.</li>
+          </ul>
+        </div>
+
+        <!-- Bottom Action Bar -->
+        <div class="panel-actions">
+          <button class="btn-action-primary" id="btn-sanitize-now">
+            ⚡ AUTO-SANITIZE COIN SELECTION
+          </button>
+          <button class="btn-action-secondary" id="btn-export-report">
+            📄 EXPORT AUDIT CERTIFICATE
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Bottom Terminal Status Bar -->
+    <footer class="deck-footer">
+      <div class="footer-left">
+        <span class="footer-status"><span class="blink">●</span> PRE-FLIGHT FIREWALL ACTIVE</span>
+        <span class="footer-sep">|</span>
+        <span class="footer-info">LOCAL-FIRST EVALUATION // ZERO NETWORK LEAKAGE // LATENCY: &lt;1ms</span>
+      </div>
+      <div class="footer-right">
+        <span class="footer-links">
+          <a href="https://github.com/Naveen57990/Uncluster" target="_blank" class="footer-link">GITHUB REPO</a>
+          <span class="footer-sep">•</span>
+          <a href="#about" id="link-about-modal" class="footer-link">PHILOSOPHY & SPEC</a>
+        </span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal: Custom PSBT / Transaction Injector -->
+  <div class="modal-overlay" id="modal-inject">
+    <div class="modal-cyberdeck">
+      <div class="modal-header">
+        <span class="modal-title">INJECT CUSTOM BITCOIN TRANSACTION / PSBT</span>
+        <button class="modal-close" id="btn-close-modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-desc">Configure inputs and outputs manually or select a template to audit the transaction graph before signing.</p>
+        
+        <div class="modal-form-row">
+          <div class="form-col">
+            <label>INPUT 1 CLUSTER LABEL</label>
+            <input type="text" id="m-in1-cluster" value="KYC:Exchange_Cold" class="form-input">
+          </div>
+          <div class="form-col">
+            <label>INPUT 1 SATS</label>
+            <input type="number" id="m-in1-sats" value="150000" class="form-input">
+          </div>
+        </div>
+
+        <div class="modal-form-row">
+          <div class="form-col">
+            <label>INPUT 2 CLUSTER LABEL (Leave empty for 1 input)</label>
+            <input type="text" id="m-in2-cluster" value="MINING:Solo_Block" class="form-input">
+          </div>
+          <div class="form-col">
+            <label>INPUT 2 SATS</label>
+            <input type="number" id="m-in2-sats" value="95000" class="form-input">
+          </div>
+        </div>
+
+        <div class="modal-form-row">
+          <div class="form-col">
+            <label>PAYMENT DESTINATION SATS</label>
+            <input type="number" id="m-dest-sats" value="180000" class="form-input">
+          </div>
+          <div class="form-col">
+            <label>CHANGE SCRIPT TYPE</label>
+            <select id="m-change-script" class="form-input">
+              <option value="P2WPKH">P2WPKH (Native SegWit - Symmetric)</option>
+              <option value="P2PKH">P2PKH (Legacy - Mismatch Warning)</option>
+              <option value="P2TR">P2TR (Taproot - Mismatch Warning)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-modal-cancel" id="btn-cancel-inject">CANCEL</button>
+        <button class="btn-modal-confirm" id="btn-run-custom-audit">AUDIT CUSTOM TRANSACTION ➔</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Sanitized Coin Selection Simulator -->
+  <div class="modal-overlay" id="modal-sanitize">
+    <div class="modal-cyberdeck">
+      <div class="modal-header">
+        <span class="modal-title">ZERO-LEAKAGE COIN SELECTION ENGINE</span>
+        <button class="modal-close" id="btn-close-sanitize">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-desc">Calculates an isolated, single-cluster coin selection that fulfills target payment without cross-clustering separate wallet identities.</p>
+        
+        <div class="modal-form-row">
+          <div class="form-col">
+            <label>TARGET PAYMENT AMOUNT (SATOSHIS)</label>
+            <input type="number" id="target-payment-input" value="105000" class="form-input" step="1000">
+          </div>
+          <div class="form-col">
+            <label>FEE BUDGET (SATOSHIS)</label>
+            <input type="number" id="fee-budget-input" value="1800" class="form-input" step="100">
+          </div>
+        </div>
+
+        <div class="sanitize-result-panel" id="sanitize-result-box">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-modal-cancel" id="btn-close-sanitize-btn">CLOSE</button>
+        <button class="btn-modal-confirm" id="btn-calc-sanitize">RECALCULATE UNCLUSTERED POOL ➔</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

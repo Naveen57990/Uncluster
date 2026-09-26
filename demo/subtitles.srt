@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:17,736
+Bitcoin & Nostr Privacy: The Critical UTXO Deanonymization Vulnerability
+
+2
+00:00:17,736 --> 00:00:31,560
+Uncluster: Zero-Leakage Pre-Flight Bitcoin UTXO Cluster Firewall
+
+3
+00:00:31,560 --> 00:00:48,888
+Pre-Flight CIOH Detection: Intercepting Contaminated UTXO Merges
+
+4
+00:00:48,888 --> 00:01:04,584
+Deep Telemetry: Toxic Change Script Mismatches & BIP-69 Fingerprints
+
+5
+00:01:04,584 --> 00:01:17,688
+Sanitized Coin Selection: Single-Cluster Isolation & Clean Outputs
+
+6
+00:01:17,688 --> 00:01:36,912
+Nostr Shield: Auditing NIP-01, NIP-04 DMs & NIP-57 Zap Receipts
+
+7
+00:01:36,912 --> 00:01:49,680
+Zero-Dependency Python CLI, PSBT Parser & Deterministic Verification
+
+8
+00:01:49,680 --> 00:01:58,824
+Uncluster: Cypherpunk Privacy Preserved. Live at uncluster-firewall.vercel.app

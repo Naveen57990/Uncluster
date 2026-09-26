@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "The Threat: UTXO Cluster Deanonymization",
+    "text": "Every day, Bitcoin users and autonomous Nostr agents unknowingly destroy their on-chain privacy. When transactions blindly combine unspent transaction outputs from different sources, blockchain surveillance algorithms instantly cluster your wallet, your change outputs, and your real-world identity.",
+    "subtitle": "Bitcoin & Nostr Privacy: The Critical UTXO Deanonymization Vulnerability"
+  },
+  {
+    "id": 2,
+    "title": "Introducing Uncluster",
+    "text": "Introducing Uncluster: the zero-leakage pre-flight Bitcoin UTXO cluster firewall and Nostr agent shield. Uncluster intercepts, analyzes, and sanitizes transactions before they are signed or broadcast to the mempool.",
+    "subtitle": "Uncluster: Zero-Leakage Pre-Flight Bitcoin UTXO Cluster Firewall"
+  },
+  {
+    "id": 3,
+    "title": "Live Pre-Flight Audit & CIOH Detection",
+    "text": "Inside the industrial cyberdeck console, let's inspect a contaminated transaction. Instantly, Uncluster detects a critical Common-Input Ownership Heuristic merge, linking a KYC exchange UTXO with an isolated CoinJoin output, dropping privacy score to forty percent.",
+    "subtitle": "Pre-Flight CIOH Detection: Intercepting Contaminated UTXO Merges"
+  },
+  {
+    "id": 4,
+    "title": "Toxic Change & BIP-69 Fingerprint Audit",
+    "text": "Notice the deep telemetry: Uncluster identifies a toxic change script mismatch where native SegWit inputs generate a legacy change output, along with an un-randomized BIP-69 lexicographical order that fingerprints wallet software.",
+    "subtitle": "Deep Telemetry: Toxic Change Script Mismatches & BIP-69 Fingerprints"
+  },
+  {
+    "id": 5,
+    "title": "Autonomous Coin Selection Sanitization",
+    "text": "With one click on Sanitize Coin Selection, Uncluster's deterministic engine isolates the contaminated inputs, recalculates strict single-cluster coin selection, and outputs a pristine, zero-leakage transaction.",
+    "subtitle": "Sanitized Coin Selection: Single-Cluster Isolation & Clean Outputs"
+  },
+  {
+    "id": 6,
+    "title": "Nostr Agent Shield & Relay Leak Auditing",
+    "text": "Switching to the Nostr Shield tab: autonomous agents and lightning zappers are protected. Uncluster audits NIP-01 events, encrypted NIP-04 direct messages, and NIP-57 zap receipts, flagging on-chain address leaks and relay gossip fanout risks.",
+    "subtitle": "Nostr Shield: Auditing NIP-01, NIP-04 DMs & NIP-57 Zap Receipts"
+  },
+  {
+    "id": 7,
+    "title": "Terminal CLI & Open-Source Cypherpunk Engine",
+    "text": "Engineered for real Bitcoiners, Uncluster includes a zero-dependency Python CLI, native PSBT inspection, and comprehensive deterministic test coverage with zero external network telemetry.",
+    "subtitle": "Zero-Dependency Python CLI, PSBT Parser & Deterministic Verification"
+  },
+  {
+    "id": 8,
+    "title": "Conclusion: Never Broadcast Blind",
+    "text": "Never broadcast blind again. Keep your UTXOs decoupled, your change sanitized, and your Nostr relays dark. Experience Uncluster today.",
+    "subtitle": "Uncluster: Cypherpunk Privacy Preserved. Live at uncluster-firewall.vercel.app"
+  }
+]

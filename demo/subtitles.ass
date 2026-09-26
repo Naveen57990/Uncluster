@@ -1,0 +1,20 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: CyberdeckStyle,Plus Jakarta Sans,32,&H00FFFFFF,&H00000000,&H80000000,&HB00F141C,-1,0,0,0,100,100,0,0,3,8,0,2,60,60,54,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:17.73,CyberdeckStyle,,0,0,0,,Bitcoin & Nostr Privacy: The Critical UTXO Deanonymization Vulnerability
+Dialogue: 0,0:00:17.73,0:00:31.56,CyberdeckStyle,,0,0,0,,Uncluster: Zero-Leakage Pre-Flight Bitcoin UTXO Cluster Firewall
+Dialogue: 0,0:00:31.56,0:00:48.88,CyberdeckStyle,,0,0,0,,Pre-Flight CIOH Detection: Intercepting Contaminated UTXO Merges
+Dialogue: 0,0:00:48.88,0:01:04.58,CyberdeckStyle,,0,0,0,,Deep Telemetry: Toxic Change Script Mismatches & BIP-69 Fingerprints
+Dialogue: 0,0:01:04.58,0:01:17.68,CyberdeckStyle,,0,0,0,,Sanitized Coin Selection: Single-Cluster Isolation & Clean Outputs
+Dialogue: 0,0:01:17.68,0:01:36.91,CyberdeckStyle,,0,0,0,,Nostr Shield: Auditing NIP-01, NIP-04 DMs & NIP-57 Zap Receipts
+Dialogue: 0,0:01:36.91,0:01:49.68,CyberdeckStyle,,0,0,0,,Zero-Dependency Python CLI, PSBT Parser & Deterministic Verification
+Dialogue: 0,0:01:49.68,0:01:58.82,CyberdeckStyle,,0,0,0,,Uncluster: Cypherpunk Privacy Preserved. Live at uncluster-firewall.vercel.app

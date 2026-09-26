@@ -1,0 +1,8 @@
+file '/Users/naveen/Documents/antigravity/peaceful-fermi/uncluster/demo/audio_segments/seg_01.mp3'
+file '/Users/naveen/Documents/antigravity/peaceful-fermi/uncluster/demo/audio_segments/seg_02.mp3'
+file '/Users/naveen/Documents/antigravity/peaceful-fermi/uncluster/demo/audio_segments/seg_03.mp3'
+file '/Users/naveen/Documents/antigravity/peaceful-fermi/uncluster/demo/audio_segments/seg_04.mp3'
+file '/Users/naveen/Documents/antigravity/peaceful-fermi/uncluster/demo/audio_segments/seg_05.mp3'
+file '/Users/naveen/Documents/antigravity/peaceful-fermi/uncluster/demo/audio_segments/seg_06.mp3'
+file '/Users/naveen/Documents/antigravity/peaceful-fermi/uncluster/demo/audio_segments/seg_07.mp3'
+file '/Users/naveen/Documents/antigravity/peaceful-fermi/uncluster/demo/audio_segments/seg_08.mp3'
